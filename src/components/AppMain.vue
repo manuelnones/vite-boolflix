@@ -1,7 +1,7 @@
 <script>
 import { store } from '../store';
 
-import FilmList from './FilmList.vue';
+import Film from './Film.vue';
 export default {
     name: `AppMain`,
     data() {
@@ -11,13 +11,21 @@ export default {
     },
 
     components: {
-        FilmList,
+        Film,
     }
 }
 </script>
 
 <template>
-    <FilmList></FilmList>
+    <ul id="film-list">
+        <Film v-for="film in store.arrayFilm" :film="film"></Film>
+    </ul>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+#film-list {
+    display: flex;
+    margin: 40px;
+    overflow-x: auto;
+}
+</style>

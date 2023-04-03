@@ -12,9 +12,17 @@ export default {
   },
 
   created() {
-    axios.get().then((res) => {
-
+    axios.get(`https://api.themoviedb.org/3/trending/all/day?api_key=c001873ce5a6e47be97bce29c2e7b989`).then((res) => {
+      this.store.arrayFilm = res.data.results;
     })
+  },
+
+  methods: {
+    clickButton() {
+      axios.get(this.store.standardApi + this.store.searchFilm + this.store.apiKey + this.store.query + this.store.inputText).then((res) => {
+        this.store.arrayFilm = res.data.results
+      });
+    }
   },
 
   components: {
@@ -25,7 +33,7 @@ export default {
 </script>
 
 <template>
-  <AppNav></AppNav>
+  <AppNav @clickButton="clickButton()"></AppNav>
   <AppMain></AppMain>
 </template>
 
