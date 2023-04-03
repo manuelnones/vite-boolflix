@@ -12,8 +12,14 @@ export default {
   },
 
   created() {
-    axios.get(`https://api.themoviedb.org/3/trending/all/day?api_key=c001873ce5a6e47be97bce29c2e7b989`).then((res) => {
+    // film in evidenzia
+    axios.get(`https://api.themoviedb.org/3/trending/movie/day?api_key=c001873ce5a6e47be97bce29c2e7b989`).then((res) => {
       this.store.arrayFilm = res.data.results;
+    })
+
+    // serie tv in evidenzia
+    axios.get(`https://api.themoviedb.org/3/trending/tv/day?api_key=c001873ce5a6e47be97bce29c2e7b989`).then((res) => {
+      this.store.arraySeries = res.data.results;
     })
   },
 

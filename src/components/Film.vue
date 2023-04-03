@@ -1,5 +1,7 @@
 <script>
 import { store } from '../store';
+import axios from "axios";
+
 
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 export default {
