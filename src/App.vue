@@ -18,9 +18,21 @@ export default {
   },
 
   methods: {
-    clickButton() {
+    search() {
+      this.searchFilm();
+      this.searchSeries();
+    },
+
+    searchFilm() {
       axios.get(this.store.standardApi + this.store.searchFilm + this.store.apiKey + this.store.query + this.store.inputText).then((res) => {
         this.store.arrayFilm = res.data.results
+      });
+    },
+
+    searchSeries() {
+      axios.get(this.store.standardApi + this.store.searchSeries + this.store.apiKey + this.store.query + this.store.inputText).then((res) => {
+        this.store.arraySeries = res.data.results
+        console.log(res.data.results)
       });
     }
   },
@@ -33,7 +45,7 @@ export default {
 </script>
 
 <template>
-  <AppNav @clickButton="clickButton()"></AppNav>
+  <AppNav @clickButton="search()"></AppNav>
   <AppMain></AppMain>
 </template>
 

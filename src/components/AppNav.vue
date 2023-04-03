@@ -15,7 +15,8 @@ export default {
 
 <template>
     <nav>
-        <input v-model="store.inputText" type="text" placeholder="Inserisci titlolo di un film">
+        <input v-model="store.inputText" type="text" @keyup.enter="$emit(`clickButton`)"
+            placeholder="Inserisci titolo di un film">
         <button @click="$emit(`clickButton`)">Cerca</button>
     </nav>
 </template>
