@@ -32,13 +32,13 @@ export default {
     searchFilm() {
       axios.get(this.store.standardApi + this.store.searchFilm + this.store.apiKey + this.store.query + this.store.inputText).then((res) => {
         this.store.arrayFilm = res.data.results
+        console.log(res.data.results)
       });
     },
 
     searchSeries() {
       axios.get(this.store.standardApi + this.store.searchSeries + this.store.apiKey + this.store.query + this.store.inputText).then((res) => {
         this.store.arraySeries = res.data.results
-        console.log(res.data.results)
       });
     }
   },

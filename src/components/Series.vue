@@ -27,25 +27,39 @@ export default {
         } else {
             this.flagLanguage = this.series.original_language;
         }
-    }
+    },
+
+    computed: {
+        imageSeries() {
+            return this.store.baseImageApi + this.store.dimensionImageApi + this.series.poster_path
+        },
+
+        transformVote() {
+            return Math.ceil(this.series.vote_average / 10 * 5);
+        }
+    },
 }
 </script>
 
 <template>
-    <div class="single-serie">
+    <div class="single-serie" :style="{ backgroundImage: `url(` + imageSeries + `)` }">
         <strong>Titolo:</strong> {{ series.name }}
+        <br>
         <strong>Titolo originale:</strong> {{ series.original_name }}
-        <strong>Lingua:</strong> {{ series.original_language }} - <span :class="`fi fi-` + flagLanguage"></span>
-        <strong>Voto:</strong> {{ series.vote_average }}
+        <br>
+        <strong>Lingua:</strong><span :class="`fi fi-` + flagLanguage"></span>
+        <br>
+        <strong>Voto:</strong> <i v-for="star in transformVote" class="fa-solid fa-star" style="color:#ffd500 ;"></i>
+        <i v-for="star in 5 - transformVote" class="fa-regular fa-star" style="color: #ffd500;"></i>
     </div>
 </template>
 
 <style lang="scss" scoped>
 .single-serie {
-    display: flex;
-    flex-direction: column;
-    min-width: 300px;
+    min-width: 350px;
+    height: 500px;
     padding: 10px;
     border: 1px solid gray;
+    color: black;
 }
 </style>

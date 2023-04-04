@@ -1,7 +1,5 @@
 <script>
 import { store } from '../store';
-import axios from "axios";
-
 
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 export default {
@@ -29,25 +27,41 @@ export default {
         } else {
             this.flagLanguage = this.film.original_language;
         }
-    }
+    },
+
+    computed: {
+        imageFilm() {
+            return this.store.baseImageApi + this.store.dimensionImageApi + this.film.poster_path
+        },
+
+        transformVote() {
+            return Math.ceil(this.film.vote_average / 10 * 5);
+        }
+    },
 }
 </script>
 
 <template>
-    <div class="single-film">
-        <strong>Titolo:</strong> {{ film.title }}
-        <strong>Titolo originale:</strong> {{ film.original_title }}
-        <strong>Lingua:</strong> {{ film.original_language }} - <span :class="`fi fi-` + flagLanguage"></span>
-        <strong>Voto:</strong> {{ film.vote_average }}
+    <div class="single-film" :style="{ backgroundImage: `url(` + imageFilm + `)` }">
+        <div class="text-info-film">
+            <strong>Titolo:</strong> {{ film.title }}
+            <br>
+            <strong>Titolo originale:</strong> {{ film.original_title }}
+            <br>
+            <strong>Lingua: </strong><span :class="`fi fi-` + flagLanguage"></span>
+            <br>
+            <strong>Voto:</strong> <i v-for="star in transformVote" class="fa-solid fa-star" style="color:#ffd500 ;"></i>
+            <i v-for="star in 5 - transformVote" class="fa-regular fa-star" style="color: #ffd500;"></i>
+        </div>
     </div>
 </template>
 
 <style lang="scss" scoped>
 .single-film {
-    display: flex;
-    flex-direction: column;
-    min-width: 300px;
+    min-width: 350px;
+    height: 500px;
     padding: 10px;
     border: 1px solid gray;
+    color: black;
 }
 </style>

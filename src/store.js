@@ -8,4 +8,6 @@ export const store = reactive({
     apiKey: `?api_key=c001873ce5a6e47be97bce29c2e7b989`,
     query: `&query=`,
     inputText: ``,
+    baseImageApi: `https://image.tmdb.org/t/p/`,
+    dimensionImageApi: `w342`,
 })
