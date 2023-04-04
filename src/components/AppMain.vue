@@ -21,7 +21,7 @@ export default {
 <template>
     <h1>FILM</h1>
     <ul id="film-list">
-        <Film v-for="film in store.arrayFilm" :film="film"></Film>
+        <Film v-for="film in store.arrayFilm" :film="film" class="film"></Film>
     </ul>
 
     <h1>SERIE TV</h1>
@@ -46,5 +46,7 @@ export default {
 h1 {
     text-align: center;
     margin-top: 40px;
+    color: red;
+    cursor: default;
 }
 </style>

@@ -64,8 +64,20 @@ export default {
 .single-film {
     min-width: 342px;
     height: 500px;
-    padding: 10px;
-    border: 1px solid gray;
-    color: black;
+    cursor: default;
+
+    .text-info-film {
+        visibility: hidden;
+    }
+}
+
+.single-film:hover {
+    .text-info-film {
+        width: 100%;
+        height: 100%;
+        padding: 10px;
+        visibility: visible;
+        background-color: rgba(0, 0, 0, 0.8);
+    }
 }
 </style>

@@ -6,6 +6,7 @@ export default {
     data() {
         return {
             store,
+            logoImg: `/img/logo-netflix.png`
         }
     },
 
@@ -15,9 +16,26 @@ export default {
 
 <template>
     <nav>
-        <input v-model="store.inputText" type="text" @keyup.enter="$emit(`clickButton`)"
-            placeholder="Inserisci titolo di un film">
-        <button @click="$emit(`clickButton`)">Cerca</button>
+        <div id="left-nav">
+            <div id="logo">
+                <img :src="logoImg" alt="">
+            </div>
+
+            <ul id="links">
+                <li>Home</li>
+                <li>Serie TV</li>
+                <li>Film</li>
+                <li>Nuovi e popolari</li>
+                <li>La mia lista</li>
+                <li>Sfoglia per lingua</li>
+            </ul>
+        </div>
+
+        <div id="search-bar">
+            <input v-model="store.inputText" type="text" @keyup.enter="$emit(`clickButton`)"
+                placeholder="Inserisci titolo di un film">
+            <button @click="$emit(`clickButton`)">Cerca</button>
+        </div>
     </nav>
 </template>
 
@@ -25,18 +43,54 @@ export default {
 nav {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     gap: 20px;
-    height: 80px;
+    height: 100px;
+    background-color: rgba(0, 0, 0, 0.5);
 
-    input {
-        width: 200px;
-        padding: 10px;
+    #left-nav {
+        display: flex;
+
+        #logo {
+            width: 60px;
+            height: 60px;
+            margin-left: 50px;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        ul {
+            display: flex;
+            align-items: center;
+            padding-left: 40px;
+
+            li {
+                padding-left: 15px;
+                cursor: pointer;
+            }
+
+            li:hover {
+                text-decoration: underline;
+            }
+        }
     }
 
-    button {
-        padding: 10px;
-        cursor: pointer;
+    #search-bar {
+        margin-right: 50px;
+
+        input {
+            width: 200px;
+            padding: 5px;
+        }
+
+        button {
+            padding: 5px;
+            margin-left: 20px;
+            cursor: pointer;
+        }
     }
+
 }
 </style>
