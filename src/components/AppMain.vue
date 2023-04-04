@@ -19,12 +19,12 @@ export default {
 </script>
 
 <template>
-    <h1>FILM</h1>
+    <h2>FILM</h2>
     <ul id="film-list">
         <Film v-for="film in store.arrayFilm" :film="film" class="film"></Film>
     </ul>
 
-    <h1>SERIE TV</h1>
+    <h2>SERIE TV</h2>
     <ul id="series-list">
         <Series v-for="serie in store.arraySeries" :series="serie"></Series>
     </ul>
@@ -34,19 +34,20 @@ export default {
 #film-list {
     display: flex;
     margin: 40px;
+    margin-top: 20px;
     overflow-x: auto;
 }
 
 #series-list {
     display: flex;
     margin: 40px;
+    margin-top: 20px;
     overflow-x: auto;
 }
 
-h1 {
-    text-align: center;
+h2 {
     margin-top: 40px;
-    color: red;
+    margin-left: 40px;
     cursor: default;
 }
 </style>
