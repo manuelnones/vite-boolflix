@@ -15,20 +15,6 @@ export default {
         series: Object,
     },
 
-    mounted() {
-        if (this.series.original_language == "en") {
-            this.flagLanguage = "gb";
-        } else if (this.series.original_language == "ja") {
-            this.flagLanguage = "jp";
-        } else if (this.series.original_language == "ko") {
-            this.flagLanguage = "kr";
-        } else if (this.series.original_language == "zh") {
-            this.flagLanguage = "cn";
-        } else {
-            this.flagLanguage = this.series.original_language;
-        }
-    },
-
     computed: {
         imageSeries() {
             return this.store.baseImageApi + this.store.dimensionImageApi + this.series.poster_path
@@ -36,6 +22,24 @@ export default {
 
         transformVote() {
             return Math.ceil(this.series.vote_average / 10 * 5);
+        },
+
+        seriesLanguage() {
+            if (this.series.original_language == "en") {
+                return "gb";
+
+            } else if (this.series.original_language == "ja") {
+                return "jp";
+
+            } else if (this.series.original_language == "ko") {
+                return "kr";
+
+            } else if (this.series.original_language == "zh") {
+                return "cn";
+
+            } else {
+                return this.series.original_language;
+            }
         }
     },
 }
@@ -47,7 +51,7 @@ export default {
         <br>
         <strong>Titolo originale:</strong> {{ series.original_name }}
         <br>
-        <strong>Lingua:</strong><span :class="`fi fi-` + flagLanguage"></span>
+        <strong>Lingua: </strong><span :class="`fi fi-` + seriesLanguage"></span>
         <br>
         <strong>Voto:</strong> <i v-for="star in transformVote" class="fa-solid fa-star" style="color:#ffd500 ;"></i>
         <i v-for="star in 5 - transformVote" class="fa-regular fa-star" style="color: #ffd500;"></i>
@@ -56,7 +60,7 @@ export default {
 
 <style lang="scss" scoped>
 .single-serie {
-    min-width: 350px;
+    min-width: 342px;
     height: 500px;
     padding: 10px;
     border: 1px solid gray;

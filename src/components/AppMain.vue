@@ -24,8 +24,6 @@ export default {
         <Film v-for="film in store.arrayFilm" :film="film"></Film>
     </ul>
 
-    <hr>
-
     <h1>SERIE TV</h1>
     <ul id="series-list">
         <Series v-for="serie in store.arraySeries" :series="serie"></Series>
