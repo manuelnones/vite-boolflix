@@ -46,7 +46,7 @@ nav {
     justify-content: space-between;
     gap: 20px;
     height: 100px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgb(0, 0, 0);
 
     #left-nav {
         display: flex;

@@ -64,6 +64,7 @@ export default {
 .single-film {
     min-width: 342px;
     height: 500px;
+    background-position: bottom;
     cursor: default;
 
     .text-info-film {
