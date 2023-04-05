@@ -38,25 +38,26 @@ export default {
     background-image: url(https://www.nerdevil.it/wp-content/uploads/2021/07/tenebre-e-ossa-stagione-1-recensione-nerdevil.jpg);
     background-size: cover;
     height: 600px;
-    width: 100%;
+    width: calc(100vw - 15px);
 
     #subtitle-film {
         position: absolute;
         bottom: 0;
         left: 40px;
+        margin-bottom: 20px;
+        cursor: default;
     }
 }
 
 #film-list {
     display: flex;
-    margin-left: 40px;
     overflow-x: auto;
 }
 
 #series-list {
     display: flex;
-    margin-left: 40px;
     margin-bottom: 50px;
+    margin-top: 20px;
     overflow-x: auto;
 }
 

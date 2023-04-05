@@ -40,7 +40,7 @@ export default {
             } else {
                 return this.film.original_language;
             }
-        }
+        },
     },
 }
 </script>
@@ -48,14 +48,15 @@ export default {
 <template>
     <div class="single-film" :style="{ backgroundImage: `url(` + imageFilm + `)` }">
         <div class="text-info-film">
-            <strong>Titolo:</strong> {{ film.title }}
-            <br>
-            <strong>Titolo originale:</strong> {{ film.original_title }}
-            <br>
-            <strong>Lingua: </strong><span :class="`fi fi-` + filmLanguage"></span>
-            <br>
-            <strong>Voto:</strong> <i v-for="star in transformVote" class="fa-solid fa-star" style="color:#ffd500 ;"></i>
-            <i v-for="star in 5 - transformVote" class="fa-regular fa-star" style="color: #ffd500;"></i>
+            <div><strong>Titolo:</strong> {{ film.title }} </div>
+            <div><strong>Titolo originale:</strong> {{ film.original_title }} </div>
+            <div><strong>Lingua: </strong><span :class="`fi fi-` + filmLanguage"></span></div>
+            <div><strong>Generi:</strong></div>
+            <div>
+                <strong>Voto:</strong>
+                <i v-for="star in transformVote" class="fa-solid fa-star" style="color:#ffd500 ;"></i>
+                <i v-for="star in 5 - transformVote" class="fa-regular fa-star" style="color: #ffd500;"></i>
+            </div>
         </div>
     </div>
 </template>

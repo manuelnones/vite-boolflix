@@ -48,14 +48,14 @@ export default {
 <template>
     <div class="single-serie" :style="{ backgroundImage: `url(` + imageSeries + `)` }">
         <div class="text-info-serie">
-            <strong>Titolo:</strong> {{ series.name }}
-            <br>
-            <strong>Titolo originale:</strong> {{ series.original_name }}
-            <br>
-            <strong>Lingua: </strong><span :class="`fi fi-` + seriesLanguage"></span>
-            <br>
-            <strong>Voto:</strong> <i v-for="star in transformVote" class="fa-solid fa-star" style="color:#ffd500 ;"></i>
-            <i v-for="star in 5 - transformVote" class="fa-regular fa-star" style="color: #ffd500;"></i>
+            <div><strong>Titolo:</strong> {{ series.name }}</div>
+            <div><strong>Titolo originale:</strong> {{ series.original_name }}</div>
+            <div><strong>Lingua: </strong><span :class="`fi fi-` + seriesLanguage"></span></div>
+            <div>
+                <strong>Voto:</strong>
+                <i v-for="star in transformVote" class="fa-solid fa-star" style="color:#ffd500 ;"></i>
+                <i v-for="star in 5 - transformVote" class="fa-regular fa-star" style="color: #ffd500;"></i>
+            </div>
         </div>
     </div>
 </template>
